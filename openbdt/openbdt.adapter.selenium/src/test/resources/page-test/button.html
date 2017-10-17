@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+		
+		<script>
+			function myAlert() {
+			    alert("Alert");
+			}
+		</script>
+	</head>
+	<body>
+		<div id="conteainer">
+			<h1>Page Button</h1>
+			
+			<input type="button" value="Button" id="btnId">
+			<br>
+			
+			<input type="button" value="Button" id="btnInvisbleId" style="display: none;" onclick="myAlert();">
+			<br>
+			
+			<select name="select" id="selectId">
+				<option value="valor1" label="valor 1">valor 1</option>
+				<option value="valor2" label="valor 2">valor 2</option>
+			</select>
+			
+			<br>
+			<a href="http://www.google.com" target="_blank" id="linkId">Link</a>
+			
+			<br>
+			<a href="http://www.google.com" target="_blank" id="linkIdInvisible" style="display:none;">Link</a>
+			
+			<br>
+			<p id="textID">Texto</p>
+			
+			<br>
+			<input type="text" height="100" id="txtTextoID"/>
+		</div>
+	</body>
+</html>
