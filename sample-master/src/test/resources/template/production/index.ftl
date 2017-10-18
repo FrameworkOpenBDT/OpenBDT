@@ -109,7 +109,7 @@
               <canvas height="36" width="36" id="wind" class="icon-canvas"></canvas>
             </div>
             <div id="img-logo" class="col-md-2 col-sm-4 col-xs-6">
-                <img src="images/rsi_logo.png" alt="Open BDT">
+                <img src="images/open_bdt_logo.png" alt="Open BDT">
             </div>
           </div>
           <!-- /top tiles -->
