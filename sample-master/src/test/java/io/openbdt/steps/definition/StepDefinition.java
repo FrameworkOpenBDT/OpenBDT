@@ -145,8 +145,9 @@ public class StepDefinition {
 	    stepB.clicarBotaoRegister();
 	}
 
-	@Then("^sistema apresente tela 'MY ACCOUNT'$")
-	public void sistema_apresente_tela_MY_ACCOUNT() throws Throwable {
-	    stepB.validarTelaMyAccount();
+	//@Then("^sistema apresente tela 'MY ACCOUNT'$")
+	@Then("^sistema apresente tela \"([^\"]*)\"$")
+	public void sistema_apresente_tela_MY_ACCOUNT(String arg1) throws Throwable {
+	    stepB.validarTelaMyAccount(arg1);
 	}
 }

@@ -27,11 +27,14 @@ Scenario Outline: Cadastrar usuario um
   And preencho 'Mobile phone*' "<mobile_phone>"
   And preencho 'Assign an address alias for future reference. *' "<address_alias>"
   And clico no botão 'Register >'
-  Then sistema apresente tela 'MY ACCOUNT'
+  Then sistema apresente tela "<validacao>"
 
 Examples:
-   | url                                     | email_address      | title | first_name | last_name | email               | password | day_of_birth  | month_of_birth | year_of_birth    | check_box_newsletter | check_box_offers_from_partners | address   | city  | state | zip_postal_code | country       | additional_information  | mobile_phone | address_alias | 
-   | http://automationpractice.com/index.php | teste@teste.com.br | mr.   | Teste      | Teste     | teste9@teste.com.br | teste    | 9&nbsp;&nbsp; | November&nbsp; | 1999&nbsp;&nbsp; | sim                  | não                            | avenida 9 | Testa | Texas | 12999           | United States | Este é só mais um teste | 9990299      | avenida 9     | 
+   | url                                     | email_address      | title | first_name | last_name | email               | password | day_of_birth  | month_of_birth | year_of_birth    | check_box_newsletter | check_box_offers_from_partners | address   | city  | state | zip_postal_code | country       | additional_information  | mobile_phone | address_alias | validacao|
+   | http://automationpractice.com/index.php | teste@teste.com.br | mr.   | Teste      | Teste     | teste9@teste.com.br | teste    | 9&nbsp;&nbsp; | November&nbsp; | 1999&nbsp;&nbsp; | sim                  | não                            | avenida 9 | Testa | Texas | 12999           | United States | Este é só mais um teste | 9990299      | avenida 9     |MY ACCOUNT| 
+   | http://automationpractice.com/index.php | teste@teste.com.br | mr.   | Teste      | Teste     | teste9@teste.com.br | teste    | 9&nbsp;&nbsp; | November&nbsp; | 1999&nbsp;&nbsp; | sim                  | não                            | avenida 9 | Testa | Texas | 12999           | United States | Este é só mais um teste | 9990299      | avenida 9     |OK|
+   #| http://automationpractice.com/index.php | teste@teste.com.br | mr.   | Teste      | Teste     | teste9@teste.com.br | teste    | 9&nbsp;&nbsp; | November&nbsp; | 1999&nbsp;&nbsp; | sim                  | não                            | avenida 9 | Testa | Texas | 12999           | United States | Este é só mais um teste | 9990299      | avenida 9     |MY account|
+   #| http://automationpractice.com/index.php | teste@teste.com.br | mr.   | Teste      | Teste     | teste9@teste.com.br | teste    | 9&nbsp;&nbsp; | November&nbsp; | 1999&nbsp;&nbsp; | sim                  | não                            | avenida 9 | Testa | Texas | 12999           | United States | Este é só mais um teste | 9990299      | avenida 9     |MY ACCOUNT|
 
 
 #@reprodois

@@ -161,4 +161,10 @@ public class StepBusiness {
 		
 	}
 
+	public void validarTelaMyAccount(String arg1) {
+		viewElement.waitForElementIsPresent(20, page.getTituloMyAccount());
+		System.out.println(">> " + page.getTituloMyAccount().getText());
+		Assert.assertEquals(arg1, page.getTituloMyAccount().getText());
+	}
+
 }
