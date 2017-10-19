@@ -1,1 +1,1 @@
-br.com.framework.bdd.listener.CustomStepListener
+io.openbdt.listener.CustomStepListener
