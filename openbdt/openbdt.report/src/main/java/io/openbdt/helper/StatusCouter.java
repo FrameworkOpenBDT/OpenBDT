@@ -32,6 +32,7 @@ public class StatusCouter {
 		counter.put("ERROR", 0);
 		counter.put("SUCCESS", 0);
 		counter.put("IGNORED", 0);
+		counter.put("FAILURE", 0);
 	}
 
 	/**

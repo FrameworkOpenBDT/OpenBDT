@@ -20,7 +20,7 @@ import io.openbdt.service.impl.ReportServiceImpl;
  * @author regis.rocha
  *
  */
-@Mojo(name = "format-report-new", defaultPhase = LifecyclePhase.POST_INTEGRATION_TEST)
+@Mojo(name = "format-report", defaultPhase = LifecyclePhase.POST_INTEGRATION_TEST)
 public class FormatReportGoal extends AbstractMojo {
 	
 	
