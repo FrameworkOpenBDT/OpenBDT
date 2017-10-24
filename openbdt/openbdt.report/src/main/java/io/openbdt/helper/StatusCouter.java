@@ -146,7 +146,7 @@ public class StatusCouter {
 				}
 			}
 
-			return new Resume(counter.get("PENDING"), counter.get("ERROR"), counter.get("SUCCESS"),
+			return new Resume(counter.get("PENDING"), counter.get("FAILURE"), counter.get("SUCCESS"),
 					counter.get("IGNORED"));
 
 		} catch (Exception e) {
