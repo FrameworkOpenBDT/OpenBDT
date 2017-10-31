@@ -640,5 +640,30 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 			throw new ElementNotFoundException("Element is not present in the specified timeout: " + element, e);
 		}
 	}
+
 	
+	/**
+	 *  Wait specified element to be clickable and click it.
+	 * 
+	 * @param element - Element
+	 * 
+	 * @param timeoutSeconds - int
+	 * 
+	 */
+	@Override
+	public void waitAndClick(final WebElement element, final int timeoutSeconds) {
+		LOG.info(new StringBuilder("Click element: ").append(element).append(" and wait for: ").append(timeoutSeconds).append(" seconds").toString());
+		
+		try {
+			final FluentWait<WebDriver> fluent = this.createInstanceFluentWait(this.getDriver(), timeoutSeconds);
+
+			final WebElement elementWaiting = fluent.until(ExpectedConditions.elementToBeClickable(element));
+			
+			elementWaiting.click();
+			
+		} catch (Exception e) {
+			LOG.log(Level.SEVERE, "", e);
+			throw new WebElementException("Error on click element: " + element, e);
+		}
+	}
 }

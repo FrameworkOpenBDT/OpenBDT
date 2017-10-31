@@ -133,7 +133,7 @@ public class CustomStepListener implements StepListener {
 			
 			cause = failure.getException().getLocalizedMessage();
 		}
-		
+		System.setProperty("junit.step.failed", "true");
 		LOG.info("Serenity test failure: " + cause);
 	}
 

@@ -2,6 +2,8 @@ package io.openbdt.api;
 
 import java.util.List;
 
+import org.openqa.selenium.WebElement;
+
 public interface BrowserElement<Element, CriteriaSearch> extends ViewElement {
 	
 	/**
@@ -204,4 +206,15 @@ public interface BrowserElement<Element, CriteriaSearch> extends ViewElement {
 	 * 
 	 */
 	Element waitForElementIsPresent(int timeout, Element element);
+	
+	
+	/**
+	 *  Wait specified element to be clickable and click it.
+	 * 
+	 * @param element - Element
+	 * 
+	 * @param timeoutSeconds - int
+	 * 
+	 */
+	public void waitAndClick(final WebElement element, final int timeoutSeconds);
 }
