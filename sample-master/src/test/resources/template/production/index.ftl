@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<link rel="shortcut icon" type="image/png" href="images/favicon.ico">
+	
     <title>Open BDT | Report</title>
 
     <!-- Bootstrap -->
@@ -17,7 +18,7 @@
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-
+	
     <!-- bootstrap-progressbar -->
     <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
@@ -63,7 +64,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">Ultima Execucao</a></li>
+                      <li><a href="index.html">&Uacute;ltima Execu&ccedil;&atilde;o</a></li>
                     </ul>
                   </li>
                     <ul class="nav child_menu">
@@ -118,7 +119,7 @@
               <div class="dashboard_graph">
                 <div class="row x_title">
                   <div class="col-md-6">
-                    <h3>Estatísticas da execu&ccedil;&atilde;o</h3>
+                    <h3>Estat&iacute;sticas da execu&ccedil;&atilde;o</h3>
                   </div>
                 </div>
                 <div id="container_chart" class="col-md-9 col-sm-9 col-xs-12">
@@ -282,7 +283,7 @@
 
      var steppedLineSettings = [{
          steppedLine: 'Executadas',
-         label: 'Última Execução',
+         label: '&Uacute;ltima Execu&ccedil;&atilde;o',
          color: window.chartColors.green
      }];
 

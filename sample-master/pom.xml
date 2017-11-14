@@ -104,18 +104,26 @@
 			<groupId>io.openbdt</groupId>
 			<artifactId>openbdt.core</artifactId>
 			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/openbdt.core.jar</systemPath>
+<!--  		<scope>system</scope>
+			<systemPath>${basedir}/lib/openbdt.core.jar</systemPath> -->
 		</dependency>
 
 		<dependency>
 			<groupId>io.openbdt</groupId>
 			<artifactId>openbdt.adapter.selenium</artifactId>
 			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/openbdt.adapter.selenium.jar</systemPath>
+<!--  		<scope>system</scope>
+			<systemPath>${basedir}/lib/openbdt.adapter.selenium.jar</systemPath> -->
 		</dependency>
 
+		<dependency>
+			<groupId>io.openbdt</groupId>
+			<artifactId>openbdt.plugin.maven</artifactId>
+			<version>1.0</version>
+<!-- 		<scope>system</scope>
+			<systemPath>${basedir}/lib/openbdt.plugin.maven-1.0.jar</systemPath> -->
+		</dependency>
+		
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
@@ -146,7 +154,7 @@
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
-					<skip>false</skip>
+					<skip>true</skip>
 				</configuration>
 			</plugin>
 
@@ -159,8 +167,8 @@
 						<groupId>io.openbdt</groupId>
 						<artifactId>openbdt.core</artifactId>
 						<version>1.0</version>
-						<scope>system</scope>
-						<systemPath>${basedir}/lib/openbdt.core.jar</systemPath>
+<!-- 					<scope>system</scope>
+						<systemPath>${basedir}/lib/openbdt.core.jar</systemPath> -->
 					</dependency>
 				</dependencies>
 
