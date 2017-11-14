@@ -64,7 +64,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">&Uacute;ltima Execu&ccedil;&atilde;o</a></li>
+                      <li><a href="index.html"><h6>&Uacute;ltima Execu&ccedil;&atilde;o</h6></a></li>
                     </ul>
                   </li>
                     <ul class="nav child_menu">
@@ -283,7 +283,7 @@
 
      var steppedLineSettings = [{
          steppedLine: 'Executadas',
-         label: '&Uacute;ltima Execu&ccedil;&atilde;o',
+         label: '\xDAltima Execu\xE7\xE3o',
          color: window.chartColors.green
      }];
 
