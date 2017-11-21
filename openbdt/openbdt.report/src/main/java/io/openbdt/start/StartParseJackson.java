@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 
+import org.apache.log4j.Logger;
 import org.apache.velocity.runtime.directive.Foreach;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -14,6 +15,8 @@ import io.openbdt.model.Feature;
 import io.openbdt.util.DataBind;
 public class StartParseJackson {
 
+	private static Logger LOG = Logger.getLogger(StartParseJackson.class);
+	
 	public static void main(String[] args) {
 
 //		final String jsonFile = "C:\\Users\\Public\\reports\\furo.json";
@@ -33,7 +36,7 @@ public class StartParseJackson {
 
 			Feature feature = mapper.readValue(reader, Feature.class);
 			
-			System.out.println(feature);
+			LOG.info(feature);
 			
 //			DataBind dataBind = new DataBind(feature);
 //			dataBind.process();

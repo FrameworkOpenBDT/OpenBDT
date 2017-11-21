@@ -3,7 +3,11 @@ package io.openbdt.start;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import jxl.common.Logger;
+
 public class TesteJson {
+	
+	private static Logger LOG = Logger.getLogger(TesteJson.class);
 
 	public static void main(String[] args) {
 
@@ -24,9 +28,9 @@ public class TesteJson {
 				
 				for (Result step : list3) {
 					
-					System.out.println(list3);
+					LOG.info(list3);
 					
-//					System.out.println(">> " + step.getAdditionalProperties());
+//					LOG.info(">> " + step.getAdditionalProperties());
 					
 					Object object = step.getAdditionalProperties().get("elements");
 					
@@ -40,12 +44,10 @@ public class TesteJson {
 							
 //							mp.get("steps")
 							
-//							System.out.println(mp);
+//							LOG.info(mp);
 							
 							mp.get("steps");
 							
-							
-							System.out.println();
 						} 	
 						
 					}
@@ -79,54 +81,54 @@ public class TesteJson {
 			
 			 * Element[] element = gson.fromJson(reader, Element[].class);
 			 * 
-			 * for (Element el : element) { System.out.println(el); }
+			 * for (Element el : element) { LOG.info(el); }
 			 
 
 			Element[] element = gson.fromJson(bufferedReader, Element[].class);
 
 			for (Element elm : element) {
-				System.out.println(elm.toString());
+				LOG.info(elm.toString());
 			}
 
 			Step step = gson.fromJson(bufferedReader, Step.class);
 
 
-//				System.out.println(step.toString());
+//				LOG.info(step.toString());
 
 
 			Match match = gson.fromJson(bufferedReader, Match.class);
 
 			for (Match ma : match) {
-				System.out.println(ma.toString());
+				LOG.info(ma.toString());
 			}
 
 			Example example = gson.fromJson(bufferedReader, Example.class);
 			
-			System.out.println(example.toString());*/
+			LOG.info(example.toString());*/
 			/*for (Example ex : example) {
-				System.out.println(ex.toString());
+				LOG.info(ex.toString());
 			}*/
 
 			/*
 			 * Argument arg = gson.fromJson(reader, Argument.class);
 			 * 
-			 * System.out.println(arg.toString());
+			 * LOG.info(arg.toString());
 			 */
 
 			// Post post = gson.fromJson(reader, Post.class);
 
 			/*
-			 * for (Argument argu : arg) { System.out.println(argu.toString()); }
+			 * for (Argument argu : arg) { LOG.info(argu.toString()); }
 			 */
 
 			/*
 			 * 
 			 * 
 			 * Match[] match = gson.fromJson(reader, Match[].class); for (Match ma : match)
-			 * { System.out.println(ma.toString()); }
+			 * { LOG.info(ma.toString()); }
 			 * 
 			 * Result[] res = gson.fromJson(reader, Result[].class); for (Result re : res) {
-			 * System.out.println(re.toString()); }
+			 * LOG.info(re.toString()); }
 			 * 
 			 */
 
