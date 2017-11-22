@@ -1,11 +1,14 @@
 package br.com.rsi.framework.bdd.driver;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import br.com.rsi.properties.PropertiesAdapterSeleniumUtil;
 import io.openbdt.driver.WebDriverManager;
 import io.openbdt.element.WebBrowserScreenElement;
 import io.openbdt.exception.InstantiateDriverException;
@@ -18,12 +21,14 @@ public class TestDriverManager {
 	
 	@Autowired
 	private WebDriverManager driverManager;
+	private final Logger LOG = Logger.getLogger(this.getClass());
 	
 	@Test
 	public void testLoadClassDriver() {
 		
 		try (WebBrowserScreenElement ve = (WebBrowserScreenElement) this.driverManager.open(SeleniumDriverType.FIREFOX_DRIVER, null)) { 
-			System.setProperty("webdriver.gecko.driver", "C:/desenvolvimento/tools/geckodriver-v0.11.1-win64/geckodriver.exe");
+		String driver = FileUtils.getFile(PropertiesAdapterSeleniumUtil.getProperty("webdriver.gecko.driver")).getAbsolutePath();
+		System.setProperty("webdriver.gecko.driver", driver);
 
 			ve.getDriver().get("https://www.google.com.br");
 			
