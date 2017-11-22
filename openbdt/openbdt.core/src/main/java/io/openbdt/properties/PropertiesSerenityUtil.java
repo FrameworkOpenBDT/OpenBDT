@@ -44,11 +44,9 @@ public final class PropertiesSerenityUtil {
 	 * 
 	 * @param propertyFileName
 	 * 
-	 * @return Properties
-	 * 
 	 * @throws 
 	 */
-	private void loadPropertiesFile() throws Exception {
+	private void loadPropertiesFile() throws PropertyNotFoundException {
 		LOG.info("Carregando arquivo de propriedades do thucydides.properties"); 
 		
 		this.propertiesLoaded = new Properties();

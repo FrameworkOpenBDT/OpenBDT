@@ -49,8 +49,8 @@ public final class PropertiesProjectUtil {
 	 * 
 	 * @throws
 	 */
-	private void loadPropertiesFile() throws Exception {
-		LOG.info("Carregando arquivo de propriedades do projeto.preperties");
+	private void loadPropertiesFile() throws PropertyNotFoundException {
+		LOG.info("Carregando arquivo de propriedades do projeto.properties");
 
 		this.propertiesLoaded = new Properties();
 
@@ -88,7 +88,7 @@ public final class PropertiesProjectUtil {
 	 * @throws Exception
 	 */
 	public static String getProperty(final String propertyName) throws PropertyNotFoundException {
-		LOG.info("Obtendo propriedade através getProperty do projeto.preperties");
+		LOG.info("Obtendo propriedade através getProperty do projeto.properties");
 
 		if (instance == null) {
 			instance = new PropertiesProjectUtil();
