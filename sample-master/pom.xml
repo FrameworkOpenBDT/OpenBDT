@@ -36,21 +36,12 @@
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>serenity-core</artifactId>
 			<version>${serenity.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>net.serenity-bdd</groupId>
-					<artifactId>serenity-report-resources</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>serenity-report-resources</artifactId>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/serenity-report-resources-1.3.0.jar</systemPath>
 			<version>${serenity.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>serenity-cucumber</artifactId>
@@ -104,26 +95,20 @@
 			<groupId>io.openbdt</groupId>
 			<artifactId>openbdt.core</artifactId>
 			<version>1.0</version>
-<!--  		<scope>system</scope>
-			<systemPath>${basedir}/lib/openbdt.core.jar</systemPath> -->
 		</dependency>
 
 		<dependency>
 			<groupId>io.openbdt</groupId>
 			<artifactId>openbdt.adapter.selenium</artifactId>
 			<version>1.0</version>
-<!--  		<scope>system</scope>
-			<systemPath>${basedir}/lib/openbdt.adapter.selenium.jar</systemPath> -->
 		</dependency>
 
 		<dependency>
 			<groupId>io.openbdt</groupId>
 			<artifactId>openbdt.plugin.maven</artifactId>
 			<version>1.0</version>
-<!-- 		<scope>system</scope>
-			<systemPath>${basedir}/lib/openbdt.plugin.maven-1.0.jar</systemPath> -->
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
@@ -167,8 +152,6 @@
 						<groupId>io.openbdt</groupId>
 						<artifactId>openbdt.core</artifactId>
 						<version>1.0</version>
-<!-- 					<scope>system</scope>
-						<systemPath>${basedir}/lib/openbdt.core.jar</systemPath> -->
 					</dependency>
 				</dependencies>
 
@@ -208,18 +191,10 @@
 						<groupId>net.serenity-bdd</groupId>
 						<artifactId>serenity-core</artifactId>
 						<version>${serenity.version}</version>
-						<exclusions>
-							<exclusion>
-								<groupId>net.serenity-bdd</groupId>
-								<artifactId>serenity-report-resources</artifactId>
-							</exclusion>
-						</exclusions>
 					</dependency>
 					<dependency>
 						<groupId>net.serenity-bdd</groupId>
 						<artifactId>serenity-report-resources</artifactId>
-						<scope>system</scope>
-						<systemPath>${basedir}/lib/serenity-report-resources-1.3.0.jar</systemPath>
 						<version>${serenity.version}</version>
 					</dependency>
 				</dependencies>

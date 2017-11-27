@@ -2,6 +2,8 @@ package br.com.rsi.framework.bdd.element;
 
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -18,12 +20,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import br.com.rsi.properties.PropertiesAdapterSeleniumUtil;
 import io.openbdt.driver.WebDriverManager;
 import io.openbdt.element.WebBrowserScreenElement;
 import io.openbdt.exception.ElementNotFoundException;
 import io.openbdt.exception.InstantiateDriverException;
+import io.openbdt.exception.PropertyNotFoundException;
 import io.openbdt.types.SeleniumDriverType;
 import io.openbdt.types.TimeoutSegundos;
+import jline.internal.Log;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {WebDriverManager.class})
@@ -31,14 +36,14 @@ public class TestWaitForElement {
 
 	@Autowired
 	private WebDriverManager webDriverManager;
-	
+	private final Logger LOG = Logger.getLogger(this.getClass());
 	private WebBrowserScreenElement element;
 	
 	@Before
-	public void before() throws InstantiateDriverException {
-		final String browserDriver = "C:/desenvolvimento/tools/chrome/chromedriver.exe";
-		System.setProperty("webdriver.chrome.driver", browserDriver);
-		
+	public void before() throws InstantiateDriverException, PropertyNotFoundException {
+		String driver = FileUtils.getFile(PropertiesAdapterSeleniumUtil.getProperty("webdriver.chrome.driver")).getAbsolutePath();
+		System.setProperty("webdriver.chrome.driver", driver);
+
 		this.element = this.webDriverManager.open(SeleniumDriverType.CHROME_DRIVER, null);
 		
 		final String pathHtmlTest = this.getClass().getResource("/page-test/elements.html").getPath();

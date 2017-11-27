@@ -1,6 +1,5 @@
-package io.openbdt.properties;
+package br.com.rsi.properties;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,31 +12,31 @@ import javax.xml.bind.PropertyException;
 import io.openbdt.exception.PropertyNotFoundException;
 
 /**
- * Classe para acessar ler o projeto.properties
+ * Classe para acessar ler o adapter_selenium.properties
  * 
- * @author caio.moraes
+ * @author guilherme.sousa
  *
  */
-public final class PropertiesProjectUtil {
+public final class PropertiesAdapterSeleniumUtil {
 
 	/**
 	 * LOG
 	 */
-	private static final Logger LOG = Logger.getLogger(PropertiesProjectUtil.class.getName());
+	private static final Logger LOG = Logger.getLogger(PropertiesAdapterSeleniumUtil.class.getName());
 
-	private final String DEFAULT_PROPERTY_FILE = "projeto.properties";
+	private final String DEFAULT_PROPERTY_FILE = "adapter_selenium.properties";
 
 	/**
 	 * Instance
 	 */
-	private static PropertiesProjectUtil instance;
+	private static PropertiesAdapterSeleniumUtil instance;
 
 	/**
 	 * atributo com arquivo properties carregado.
 	 */
 	private static Properties propertiesLoaded;
 
-	private PropertiesProjectUtil() {
+	private PropertiesAdapterSeleniumUtil() {
 	};
 
 	/**
@@ -45,20 +44,18 @@ public final class PropertiesProjectUtil {
 	 * 
 	 * @param propertyFileName
 	 * 
-	 * @return Properties
-	 * 
 	 * @throws
 	 */
 	private void loadPropertiesFile() throws PropertyNotFoundException {
-		LOG.info("Carregando arquivo de propriedades do projeto.properties");
+		LOG.info("Carregando arquivo de propriedades do adapter_selenium.properties");
 
 		this.propertiesLoaded = new Properties();
 
-		FileInputStream fileInputStream = null;
+		InputStream inputStream = null;
 		try {
 
-			fileInputStream = new FileInputStream(DEFAULT_PROPERTY_FILE);
-			this.propertiesLoaded.load(fileInputStream);
+			inputStream = PropertiesAdapterSeleniumUtil.class.getResourceAsStream(DEFAULT_PROPERTY_FILE);
+			this.propertiesLoaded.load(inputStream);
 
 		} catch (FileNotFoundException e) {
 			LOG.log(Level.SEVERE, "", e);
@@ -67,9 +64,9 @@ public final class PropertiesProjectUtil {
 			LOG.log(Level.SEVERE, "", ex);
 			throw new PropertyNotFoundException(ex);
 		} finally {
-			if (fileInputStream != null) {
+			if (inputStream != null) {
 				try {
-					fileInputStream.close();
+					inputStream.close();
 				} catch (IOException e) {
 					LOG.log(Level.SEVERE, "", e);
 					throw new PropertyNotFoundException(e);
@@ -88,10 +85,10 @@ public final class PropertiesProjectUtil {
 	 * @throws Exception
 	 */
 	public static String getProperty(final String propertyName) throws PropertyNotFoundException {
-		LOG.info("Obtendo propriedade através getProperty do projeto.properties");
+		LOG.info("Obtendo propriedade através getProperty do adapter_selenium.properties");
 
 		if (instance == null) {
-			instance = new PropertiesProjectUtil();
+			instance = new PropertiesAdapterSeleniumUtil();
 		}
 
 		try {

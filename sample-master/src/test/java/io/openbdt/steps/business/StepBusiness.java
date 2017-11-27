@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 import io.openbdt.element.WebBrowserScreenElement;
 import io.openbdt.pages.PageObjectClass;
+import jxl.common.Logger;
 import net.serenity_bdd.core.annotations.findby.By;
 import net.thucydides.core.annotations.Step;
 
@@ -15,7 +16,8 @@ import net.thucydides.core.annotations.Step;
 public class StepBusiness {
 
 	PageObjectClass page;
-
+	Logger LOG = Logger.getLogger(StepBusiness.class);
+	
 	@Autowired
 	private WebBrowserScreenElement viewElement; // OBJETO QUE CONTÉM MÉTODOS PRÓPRIOS DO FRAMEWORK
 
@@ -31,7 +33,7 @@ public class StepBusiness {
 
 	public void validarTelaDeCadastro() {
 		viewElement.waitForElementIsPresent(20, page.getTituloCreateAnAccount());
-		System.out.println(">> " + page.getTituloCreateAnAccount().getText());
+		LOG.info(">> " + page.getTituloCreateAnAccount().getText());
 		Assert.assertEquals("CREATE AN ACCOUNT", page.getTituloCreateAnAccount().getText());
 	}
 
@@ -46,7 +48,7 @@ public class StepBusiness {
 
 	public void validarTelaPersonalInformation() {
 		viewElement.waitForElementIsPresent(20, page.getTituloYourPersonalInformation());
-		System.out.println(">> " + page.getTituloYourPersonalInformation().getText());
+		LOG.info(">> " + page.getTituloYourPersonalInformation().getText());
 		Assert.assertEquals("YOUR PERSONAL INFORMATION", page.getTituloYourPersonalInformation().getText());
 	}
 
@@ -156,7 +158,7 @@ public class StepBusiness {
 
 	public void validarTelaMyAccount() {
 		viewElement.waitForElementIsPresent(20, page.getTituloMyAccount());
-		System.out.println(">> " + page.getTituloMyAccount().getText());
+		LOG.info(">> " + page.getTituloMyAccount().getText());
 		Assert.assertEquals("MY ACCOUNT", page.getTituloMyAccount().getText());
 		
 	}
@@ -164,7 +166,7 @@ public class StepBusiness {
 	@Step
 	public void validarTelaMyAccount(String arg1) {
 		viewElement.waitForElementIsPresent(20, page.getTituloMyAccount());
-		System.out.println(">> " + page.getTituloMyAccount().getText());
+		LOG.info(">> " + page.getTituloMyAccount().getText());
 		Assert.assertEquals(arg1, page.getTituloMyAccount().getText());
 	}
 

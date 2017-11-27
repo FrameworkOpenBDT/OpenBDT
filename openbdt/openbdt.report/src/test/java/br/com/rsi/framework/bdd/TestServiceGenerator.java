@@ -15,6 +15,7 @@ import io.openbdt.model.Feature;
 import io.openbdt.service.ReportService;
 import io.openbdt.service.impl.ReportServiceImpl;
 import io.openbdt.validation.ValidationHelper;
+import jxl.common.Logger;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {ReportServiceImpl.class, ValidationHelper.class})
@@ -22,6 +23,7 @@ public class TestServiceGenerator {
 
 	@Autowired
 	private ReportService reportService;
+	private static Logger LOG = Logger.getLogger(TestServiceGenerator.class);
 	
 	@Test(expected = ValidationException.class)
 	public void testGenerateWithNoJson() throws ReportException, FileNotFoundException {
@@ -40,8 +42,8 @@ public class TestServiceGenerator {
 		
 		final Feature jsonConverted = this.reportService.parseJson(pathJsonTest);
 		
-		System.out.println("Result>>>>>>>>>>>>>>>>>>>");
-		System.out.println(jsonConverted);
+		LOG.info("Result>>>>>>>>>>>>>>>>>>>");
+		LOG.info(jsonConverted);
 		
 		Assert.assertNotNull(jsonConverted);
 	}
@@ -53,8 +55,8 @@ public class TestServiceGenerator {
 		
 		final Feature jsonConverted = this.reportService.parseJson(pathJsonTest);
 		
-		System.out.println("Result>>>>>>>>>>>>>>>>>>>");
-		System.out.println(jsonConverted);
+		LOG.info("Result>>>>>>>>>>>>>>>>>>>");
+		LOG.info(jsonConverted);
 		
 		Assert.assertNotNull(jsonConverted);
 	}
