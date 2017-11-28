@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import br.com.rsi.properties.PropertiesAdapterSeleniumUtil;
 import io.openbdt.driver.WebDriverManager;
 import io.openbdt.element.WebBrowserScreenElement;
 import io.openbdt.exception.InstantiateDriverException;
@@ -32,9 +31,6 @@ public class TestWebBrowserElementMouseOverChrome {
 	
 	@Before
 	public void before() throws InstantiateDriverException, PropertyNotFoundException {
-		String driver = FileUtils.getFile(PropertiesAdapterSeleniumUtil.getProperty("webdriver.chrome.driver")).getAbsolutePath();
-		System.setProperty("webdriver.chrome.driver", driver);
-
 		this.element = this.webDriverManager.open(SeleniumDriverType.CHROME_DRIVER, null);
 		
 		final String pathHtmlTest = this.getClass().getResource("/page-test/testwebbrowsermouseover.html").getPath();
