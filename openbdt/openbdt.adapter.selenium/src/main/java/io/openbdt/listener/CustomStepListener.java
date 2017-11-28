@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import org.apache.commons.lang3.StringUtils;
 
 import io.openbdt.log.LogHelper;
+import junit.framework.Assert;
 import net.thucydides.core.model.DataTable;
 import net.thucydides.core.model.Story;
 import net.thucydides.core.model.TestOutcome;
@@ -57,7 +58,10 @@ public class CustomStepListener implements StepListener {
 	 */
 	@Override
 	public void testSuiteFinished() {
-		LOG.info("Serenity test suite finished: ");
+		LOG.info("Serenity test suite finished: "
+				+ (System.getProperty("junit.step.failed") != null?"Some step failed":"Steps successfully executed"));
+		if(System.getProperty("junit.step.failed") != null)
+			Assert.assertTrue(false);
 	}
 
 	
