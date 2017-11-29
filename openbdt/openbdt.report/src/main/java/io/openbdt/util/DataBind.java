@@ -91,11 +91,6 @@ public class DataBind {
 			// Instantiate template
 			Template template = cfg.getTemplate("index.ftl");
 
-			// Console output
-			Writer console = new OutputStreamWriter(System.out);
-			template.process(map, console);
-			console.flush();
-
 			// File output
 			file = new FileWriter(new File(PropertiesProjectUtil.getProperty("report.outputDirectory")));
 	
