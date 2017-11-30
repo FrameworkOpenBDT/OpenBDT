@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt_BR">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
+    <meta charset="ISO-8859-1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" type="image/png" href="images/favicon.ico">
-	
+
     <title>Open BDT | Report</title>
 
     <!-- Bootstrap -->
@@ -18,7 +17,7 @@
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	
+
     <!-- bootstrap-progressbar -->
     <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
@@ -37,7 +36,7 @@
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
+          <div class="left_col scroll-view" style="width: 100%;">
             <div class="navbar nav_title" style="border: 0;">
               <a href="index.html" class="site_title"><span>Open BDT | Report</span></a>
             </div>
@@ -64,7 +63,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html"><h6>&Uacute;ltima Execu&ccedil;&atilde;o</h6></a></li>
+                      <li><a href="index.html">&Uacute;ltima Execu&ccedil;&atilde;o</a></li>
                     </ul>
                   </li>
                     <ul class="nav child_menu">
@@ -119,7 +118,7 @@
               <div class="dashboard_graph">
                 <div class="row x_title">
                   <div class="col-md-6">
-                    <h3>Estat&iacute;sticas da execu&ccedil;&atilde;o</h3>
+                    <h3>Estat&iacute;ticas da execu&ccedil;&atilde;o</h3>
                   </div>
                 </div>
                 <div id="container_chart" class="col-md-9 col-sm-9 col-xs-12">
@@ -251,7 +250,7 @@
          data: {
              labels: ['Pendente', 'Erro', 'Sucesso', 'Ignorado'],
              datasets: [{
-                 label: 'Ultimas ' + ((typeof(details.steppedLine) === 'boolean') ? details.steppedLine : ``),
+                 label: '\xDAltimas ' + ((typeof(details.steppedLine) === 'boolean') ? details.steppedLine : ``),
                  steppedLine: details.steppedLine,
                  data: data,
                  borderColor: details.color,

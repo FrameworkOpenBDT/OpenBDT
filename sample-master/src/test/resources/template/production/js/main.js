@@ -16,7 +16,7 @@ function init_chart_report(){
 
     var steppedLineSettings = [{
         steppedLine: 'Executadas',
-        label: 'Ultimas Execuções',
+        label: '\xDAltima Execu\xE7\xE3o',
         color: window.chartColors.green
     }];
 
@@ -40,7 +40,7 @@ function createConfig(details, data) {
      data: {
          labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6'],
          datasets: [{
-             label: 'Ultimas: ' + ((typeof(details.steppedLine) === 'boolean') ? details.steppedLine : `'${details.steppedLine}'`),
+             label: '\xDAltimas: ' + ((typeof(details.steppedLine) === 'boolean') ? details.steppedLine : `'${details.steppedLine}'`),
              steppedLine: details.steppedLine,
              data: data,
              borderColor: details.color,
