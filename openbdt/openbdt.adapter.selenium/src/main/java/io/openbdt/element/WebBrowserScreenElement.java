@@ -3,7 +3,7 @@ package io.openbdt.element;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -106,7 +106,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 			element.click();
 			
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error on click element: " + element, e);
 		}
 	}
@@ -153,7 +153,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 			elementWaiting.click();
 			
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error on click element: " + element, e);
 		}
 	}
@@ -199,7 +199,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 			btnSubmit.submit();
 			
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error on event submit: " + element, e);
 		}
 	}
@@ -219,7 +219,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 		try {
 			element.sendKeys(textToSend);
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error on event sendkeys: " + element, e);
 		}
 	}
@@ -238,7 +238,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 		try {
 			element.clear();
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error on event clear: " + element, e);
 		}
 	}
@@ -257,7 +257,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 		try {
 			return element.isSelected();
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error verifying is selected: " + element, e);
 		}
 	}
@@ -276,7 +276,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 		try {
 			return element.isEnabled();
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error verifying is enable: " + element, e);
 		}
 	}
@@ -295,7 +295,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 		try {
 			return element.getText();
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error get text: " + element, e);
 		}
 	}
@@ -334,7 +334,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 			return fluent.until(function);
 			
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error finding elements by criteria: " + criteria, e);
 		}
 	}
@@ -372,7 +372,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 			return fluent.until(function);
 			
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error finding element by criteria: " + criteria, e);
 		}
 	}
@@ -389,7 +389,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 			this.getDriver().get(url);
 			
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error open browser and redirect to URL: " + url, e);
 		}
 	}
@@ -407,7 +407,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 			this.getDriver().navigate().to(url);
 			
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error open browser and redirect to URL: " + url, e);
 		}
 	}
@@ -424,7 +424,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 			this.getDriver().navigate().refresh();
 			
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error refresh the current page: ", e);
 		}
 	}
@@ -443,7 +443,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 			new Select(element).selectByVisibleText(text);
 			
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error select by visible text: " + element, e);
 		}
 	}
@@ -462,7 +462,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 			new Select(element).selectByValue(value);
 			
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error select by value: " + element, e);
 		}
 	}
@@ -481,7 +481,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 			new Select(element).selectByIndex(index);
 			
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error select by index: " + element, e);
 		}
 	}
@@ -539,7 +539,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 			a.moveToElement(element).build().perform();
 				
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error event mouse over: " + element, e);
 		}
 	}
@@ -556,7 +556,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 		try {			
 			((JavascriptExecutor) this.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error scroll in element: " + element, e);
 		}
 		
@@ -575,7 +575,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 		try {			
 			((JavascriptExecutor) this.getDriver()).executeScript("window.scroll("+positionX+","+positionY+");");
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error in Scroll x , y: " , e);
 		}
 		
@@ -592,7 +592,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 		try {			
 			((JavascriptExecutor) this.getDriver()).executeScript(javascript);
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error executando javascript: ", e);
 		}		
 	}
@@ -609,7 +609,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 		try {			
 			((JavascriptExecutor) this.getDriver()).executeScript(javascript, element);
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error executando javascript: " + element, e);
 		}
 		
@@ -636,7 +636,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 			return fluent.until(ExpectedConditions.visibilityOf(element));
 			
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new ElementNotFoundException("Element is not present in the specified timeout: " + element, e);
 		}
 	}
@@ -662,7 +662,7 @@ public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 			elementWaiting.click();
 			
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new WebElementException("Error on click element: " + element, e);
 		}
 	}

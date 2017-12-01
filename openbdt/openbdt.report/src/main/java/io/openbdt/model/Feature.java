@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -273,7 +273,7 @@ public class Feature {
 			sumResult = StatusCouter.sumResult(this);
 
 		} catch (ReportException e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new ReportException(e);
 		}
 		return sumResult;

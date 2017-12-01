@@ -2,7 +2,7 @@ package io.openbdt.driver;
 
 import java.util.Map;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 import org.springframework.stereotype.Component;
 
@@ -41,7 +41,7 @@ public class WebDriverManager implements WebDriverContract<SeleniumDriverType, W
 			return new WebBrowserScreenElement();
 		
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new InstantiateDriverException(e);
 		}
 	}

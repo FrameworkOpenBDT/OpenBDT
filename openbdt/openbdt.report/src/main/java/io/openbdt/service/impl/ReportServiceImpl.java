@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 import javax.xml.bind.PropertyException;
 
@@ -74,7 +74,7 @@ public final class ReportServiceImpl implements ReportService {
 			return mapper.readValue(reader, Feature.class);
 
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new ReportException(e);
 		}
 	}
@@ -114,16 +114,16 @@ public final class ReportServiceImpl implements ReportService {
 			dataBind.generateReport();
 
 		} catch (ReportException e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new ReportException(e);
 		} catch (PropertyException e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new PropertyNotFoundException(e);
 		} catch (FileNotFoundException e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new PropertyNotFoundException(e);
 		} catch (IOException e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new ReportException(e);
 		}
 	}

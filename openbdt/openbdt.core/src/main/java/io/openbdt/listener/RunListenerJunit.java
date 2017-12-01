@@ -1,6 +1,6 @@
 package io.openbdt.listener;
 
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 import org.junit.runner.Description;
 import org.junit.runner.Result;

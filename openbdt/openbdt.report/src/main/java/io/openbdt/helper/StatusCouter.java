@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 import io.openbdt.exception.ReportException;
 import io.openbdt.model.Feature;
@@ -62,7 +62,7 @@ public class StatusCouter {
 				return calcResult(feature);
 			}
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new ReportException(e);
 		}
 
@@ -86,7 +86,7 @@ public class StatusCouter {
 			processTotalStatus = processTotalStatus(resumeList);
 
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new ReportException(e);
 		}
 
@@ -116,7 +116,7 @@ public class StatusCouter {
 					counter.get("IGNORED"));
 
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new ReportException(e);
 		}
 
@@ -150,7 +150,7 @@ public class StatusCouter {
 					counter.get("IGNORED"));
 
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new ReportException(e);
 		}
 	}
@@ -184,7 +184,7 @@ public class StatusCouter {
 			result = new Resume(pending, error, success, ignored);
 
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new ReportException(e);
 		}
 
@@ -215,7 +215,7 @@ public class StatusCouter {
 			}
 
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new ReportException(e);
 		}
 
@@ -263,7 +263,7 @@ public class StatusCouter {
 					+ "  </div>  </div>\r\n" + "</div>";
 
 		} catch (ReportException e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new ReportException(e);
 		}
 		return div;

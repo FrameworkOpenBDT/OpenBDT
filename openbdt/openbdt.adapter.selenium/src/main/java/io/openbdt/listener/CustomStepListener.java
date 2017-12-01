@@ -3,7 +3,7 @@ package io.openbdt.listener;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -282,7 +282,7 @@ public class CustomStepListener implements StepListener {
 				LOG.info("Headers: \n" + headers.toString());
 			}
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 		}
 	}
 
@@ -306,7 +306,7 @@ public class CustomStepListener implements StepListener {
 				});
 			}
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 		}
 	}
 

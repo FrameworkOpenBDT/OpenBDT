@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 import javax.xml.bind.PropertyException;
 
@@ -56,17 +56,17 @@ public final class PropertiesSerenityUtil {
 			fileInputStream = new FileInputStream(DEFAULT_PROPERTY_FILE);
 			this.propertiesLoaded.load(fileInputStream);
 		} catch (FileNotFoundException e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new PropertyNotFoundException(e);
 		} catch (IOException ex) {
-			LOG.log(Level.SEVERE, "", ex);
+			LOG.fatal(ex.getMessage(), ex);
 			throw new PropertyNotFoundException(ex);
 		} finally {
 			if (fileInputStream != null) {
 				try {
 					fileInputStream.close();
 				} catch (IOException e) {
-					LOG.log(Level.SEVERE, "", e);
+					LOG.fatal(e.getMessage(), e);
 					throw new PropertyNotFoundException(e);
 				}
 			}
@@ -98,7 +98,7 @@ public final class PropertiesSerenityUtil {
 			}
 			return propertiesLoaded.getProperty(propertyName);
 		} catch (Exception e) {
-			LOG.log(Level.SEVERE, "", e);
+			LOG.fatal(e.getMessage(), e);
 			throw new PropertyException(e);
 		}
 	}

@@ -1,7 +1,7 @@
 package io.openbdt.plugin;
 
 import java.util.List;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 import gherkin.formatter.Formatter;
 import gherkin.formatter.model.Background;
