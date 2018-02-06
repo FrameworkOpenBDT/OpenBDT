@@ -2,9 +2,8 @@ package io.openbdt.element;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import org.apache.log4j.Logger;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -15,11 +14,9 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
-import org.springframework.stereotype.Component;
 
 import com.google.common.base.Function;
 
-import io.openbdt.api.BrowserElement;
 import io.openbdt.exception.ElementNotFoundException;
 import io.openbdt.exception.WebElementException;
 import net.thucydides.core.webdriver.ThucydidesWebDriverSupport;
@@ -28,7 +25,6 @@ import net.thucydides.core.webdriver.ThucydidesWebDriverSupport;
  * functions to interact with the web browser screen 
  * 
  */
-@Component
 public class WebBrowserScreenElement implements BrowserElement<WebElement, By> {
 	
 	/**

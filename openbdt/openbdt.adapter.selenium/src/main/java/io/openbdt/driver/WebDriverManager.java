@@ -1,9 +1,8 @@
 package io.openbdt.driver;
 
 import java.util.Map;
-import java.util.logging.Level;
-import org.apache.log4j.Logger;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import io.openbdt.element.WebBrowserScreenElement;

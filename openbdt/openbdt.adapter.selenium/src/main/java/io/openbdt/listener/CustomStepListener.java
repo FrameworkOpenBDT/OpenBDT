@@ -2,10 +2,9 @@ package io.openbdt.listener;
 
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Level;
-import org.apache.log4j.Logger;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 
 import io.openbdt.log.LogHelper;
 import junit.framework.Assert;

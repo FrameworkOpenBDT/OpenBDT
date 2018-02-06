@@ -1,7 +1,5 @@
 package io.openbdt.exception;
 
-import io.openbdt.exception.NotFoundException;
-
 /**
  *  Exception to be throw when element is not found
  * 

@@ -1,7 +1,5 @@
 package io.openbdt.exception;
 
-import io.openbdt.exception.ElementException;
-
 /**
  * Exception will be throw when ocurr error in interaction with web view element.
  *
