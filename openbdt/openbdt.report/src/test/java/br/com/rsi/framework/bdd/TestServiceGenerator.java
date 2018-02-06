@@ -2,6 +2,7 @@ package br.com.rsi.framework.bdd;
 
 import java.io.FileNotFoundException;
 
+import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +16,6 @@ import io.openbdt.model.Feature;
 import io.openbdt.service.ReportService;
 import io.openbdt.service.impl.ReportServiceImpl;
 import io.openbdt.validation.ValidationHelper;
-import jxl.common.Logger;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {ReportServiceImpl.class, ValidationHelper.class})
