@@ -3,12 +3,11 @@ package io.openbdt.properties;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
-import java.util.logging.Level;
-import org.apache.log4j.Logger;
 
 import javax.xml.bind.PropertyException;
+
+import org.apache.log4j.Logger;
 
 import io.openbdt.exception.PropertyNotFoundException;
 
