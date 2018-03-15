@@ -1,15 +1,17 @@
 package io.openbdt.serenity.plugin;
 
 import java.util.List;
+
 import org.apache.log4j.Logger;
 
-import gherkin.formatter.Formatter;
-import gherkin.formatter.model.Background;
-import gherkin.formatter.model.Examples;
-import gherkin.formatter.model.Feature;
-import gherkin.formatter.model.Scenario;
-import gherkin.formatter.model.ScenarioOutline;
-import gherkin.formatter.model.Step;
+import cucumber.api.Scenario;
+import cucumber.api.event.EventPublisher;
+import cucumber.api.formatter.Formatter;
+import gherkin.ast.Background;
+import gherkin.ast.Examples;
+import gherkin.ast.Feature;
+import gherkin.ast.ScenarioOutline;
+import gherkin.ast.Step;
 
 /**
  * Plugin to report format
@@ -35,7 +37,6 @@ public class FormatterReportPlugin implements Formatter {
      * @param line the line number of the event
      * 
      */
-	@Override
 	public void syntaxError(final String state, final String event, final List<String> legalEvents, final String uri, final Integer line) {
 		final StringBuilder printSyntaxError = new StringBuilder();
 		
@@ -50,7 +51,6 @@ public class FormatterReportPlugin implements Formatter {
      *
      * @param uri the feature's URI
      */
-	@Override
 	public void uri(final String uri) {
 		LOG.info("formatter: uri > " + uri);
 	}
@@ -61,7 +61,6 @@ public class FormatterReportPlugin implements Formatter {
      *
      * @param feature the to be executed {@linkplain Feature}
      */
-	@Override
 	public void feature(final Feature feature) {
 		if (feature != null) {
 			LOG.info("formatter: feature > " + feature.getName());
@@ -75,7 +74,6 @@ public class FormatterReportPlugin implements Formatter {
      * @param scenarioOutline the to be executed {@link ScenarioOutline}
      * 
      */
-	@Override
 	public void scenarioOutline(final ScenarioOutline scenarioOutline) {
 		if (scenarioOutline != null) {
 			LOG.info("formatter: scenario outline " + scenarioOutline.getName());
@@ -91,7 +89,6 @@ public class FormatterReportPlugin implements Formatter {
      * @param examples the to be executed
      * 
      */
-	@Override
 	public void examples(final Examples examples) {
 		if (examples != null) {
 			LOG.info("formatter: examples " + examples.getName());
@@ -105,7 +102,6 @@ public class FormatterReportPlugin implements Formatter {
      * @param scenario the {@link Scenario} of the current lifecycle
      * 
      */
-	@Override
 	public void startOfScenarioLifeCycle(final Scenario scenario) {
 		if (scenario != null) {
 			LOG.info("formatter: start Of Scenario Life Cycle " + scenario.getName());
@@ -119,7 +115,6 @@ public class FormatterReportPlugin implements Formatter {
      * @param background the to be executed {@link Background}
      * 
      */
-	@Override
 	public void background(final Background background) {
 		if (background != null) {
 			LOG.info("formatter: background " + background.getName());
@@ -132,7 +127,6 @@ public class FormatterReportPlugin implements Formatter {
      *
      * @param scenario the to be executed {@link Scenario}
      */
-	@Override
 	public void scenario(final Scenario scenario) {
 		if (scenario != null) {
 			LOG.info("formatter: scenario " + scenario.getName());
@@ -147,10 +141,9 @@ public class FormatterReportPlugin implements Formatter {
      * @param step the {@link Step} to be executed
      * 
      */
-	@Override
 	public void step(final Step step) {
 		if (step != null) {
-			LOG.info("formatter: step " + step.getName());
+			LOG.info("formatter: step " + step.getText());
 		}
 	}
 
@@ -161,7 +154,6 @@ public class FormatterReportPlugin implements Formatter {
      * @param scenario the {@link Scenario} of the current lifecycle
      * 
      */
-	@Override
 	public void endOfScenarioLifeCycle(Scenario scenario) {
 		if (scenario != null) {
 			LOG.info("formatter: end Of Scenario LifeCycle " + scenario.getName());
@@ -173,7 +165,6 @@ public class FormatterReportPlugin implements Formatter {
      * Indicates that the last file has been processed. This should print out any closing output,
      * such as completing the JSON string, but it should *not* close any underlying streams/writers.
      */
-	@Override
 	public void done() {
 		LOG.info("formatter: done ");
 	}
@@ -182,7 +173,6 @@ public class FormatterReportPlugin implements Formatter {
 	/**
      * Closes all underlying streams.
      */
-	@Override
 	public void close() {
 		LOG.info("formatter: close ");
 	}
@@ -191,8 +181,13 @@ public class FormatterReportPlugin implements Formatter {
 	/**
      * Indicates the End-Of-File for a Gherkin document (.feature file)
      */
-	@Override
 	public void eof() {
 		LOG.info("formatter: end of file Gherkin document (.feature file) ");
+	}
+
+
+	@Override
+	public void setEventPublisher(EventPublisher arg0) {
+		// TODO
 	}
 }

@@ -9,11 +9,7 @@ import cucumber.runtime.Runtime;
 import cucumber.runtime.RuntimeOptions;
 import cucumber.runtime.io.ResourceLoader;
 import cucumber.runtime.io.ResourceLoaderClassFinder;
-import io.openbdt.serenity.plugin.FormatterReportPlugin;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
-import net.serenitybdd.cucumber.SerenityReporter;
-import net.thucydides.core.guice.Injectors;
-import net.thucydides.core.webdriver.Configuration;
 
 /**
  * 
@@ -66,13 +62,13 @@ public class CucumberWithOpenBdt extends CucumberWithSerenity {
 	public static Runtime createEnabledRuntime(final ResourceLoader resourceLoader, final ClassLoader classLoader, final RuntimeOptions runtimeOptions) {
 		final ClassFinder classFinder = new ResourceLoaderClassFinder(resourceLoader, classLoader);
 		
-		final Configuration systemConfiguration = Injectors.getInjector().getInstance(Configuration.class);
+		//final Configuration systemConfiguration = Injectors.getInjector().getInstance(Configuration.class);
 		
 		// add report plugin
-		 runtimeOptions.addPlugin(new SerenityReporter(systemConfiguration));
+		//runtimeOptions.addPlugin(new SerenityReporter(systemConfiguration, resourceLoader));
 		
 		// add report plugin
-		runtimeOptions.addPlugin(new FormatterReportPlugin());
+		//runtimeOptions.addPlugin(new FormatterReportPlugin());
 		
 		return new Runtime(resourceLoader, classFinder, classLoader, runtimeOptions);
 	}
