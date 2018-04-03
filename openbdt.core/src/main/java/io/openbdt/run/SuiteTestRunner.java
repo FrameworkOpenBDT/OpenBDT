@@ -13,7 +13,7 @@ import io.openbdt.listener.RunListenerJunit;
 @Component
 public class SuiteTestRunner {
 
-	public Result runWithJunit(final Class<?> clazz) {
+	public Result runWithJunit(final Class<?> ... clazz) {
 		final JUnitCore junit = new JUnitCore();
 		
 		junit.addListener(new RunListenerJunit());
