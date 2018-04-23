@@ -24,6 +24,8 @@
 	</modules>
 
 	<properties>
+		<serenity.version>1.9.8</serenity.version>
+		<serenity.cucumber>1.9.4</serenity.cucumber>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -42,20 +44,8 @@
 			<dependency>
 				<groupId>net.serenity-bdd</groupId>
 				<artifactId>serenity-core</artifactId>
-				<version>1.9.1</version>
+				<version>${serenity.version}</version>
 			</dependency>
-
-<!-- 			<dependency>
-				<groupId>info.cukes</groupId>
-				<artifactId>cucumber-spring</artifactId>
-				<version>1.2.5</version>
-			</dependency> -->
-
-<!-- 			<dependency>
-				<groupId>info.cukes</groupId>
-				<artifactId>cucumber-junit</artifactId>
-				<version>1.2.5</version>
-			</dependency> -->
 
 			<dependency>
 				<groupId>org.hamcrest</groupId>
@@ -133,13 +123,13 @@
 			<dependency>
 				<groupId>net.serenity-bdd</groupId>
 				<artifactId>serenity-cucumber</artifactId>
-				<version>1.9.3</version>
+				<version>${serenity.cucumber}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>net.serenity-bdd</groupId>
 				<artifactId>serenity-report-resources</artifactId>
-				<version>1.9.0-rc.3</version>
+				<version>${serenity.version}</version>
 			</dependency>
 			
 			<dependency>
@@ -151,7 +141,7 @@
 			<dependency>
 				<groupId>net.serenity-bdd</groupId>
 				<artifactId>serenity-spring</artifactId>
-				<version>1.9.3</version>
+				<version>${serenity.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
