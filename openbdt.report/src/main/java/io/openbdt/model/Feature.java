@@ -1,268 +1,211 @@
 package io.openbdt.model;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.log4j.Logger;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import io.openbdt.exception.ReportException;
 import io.openbdt.helper.StatusCouter;
 
-/**
- * Classe POJO principal, utilizada para fazer o parse do Json utilizando o
- * Jackson Project, demais POJOS compõem esta classe.
- * 
- * @author caio.moraes
- *
- */
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({ "name", "id", "testSteps", "userStory", "featureTag", "title", "description", "tags", "startTime",
-		"duration", "testFailureCause", "testFailureClassname", "testFailureMessage", "testFailureSummary",
-		"projectKey", "dataTable", "manual", "result" })
 public class Feature {
 
 	/**
 	 * LOG
 	 */
 	private static final Logger LOG = Logger.getLogger(Feature.class.getName());
+	
+	private List<Tags> tags;
 
-	@JsonProperty("name")
-	private String name;
-	@JsonProperty("id")
-	private String id;
-	@JsonProperty("testSteps")
-	private List<TestStep> testSteps = null;
-	@JsonProperty("userStory")
-	private UserStory userStory;
-	@JsonProperty("featureTag")
-	private FeatureTag featureTag;
-	@JsonProperty("title")
-	private String title;
-	@JsonProperty("description")
-	private String description;
-	@JsonProperty("tags")
-	private List<Tag> tags = null;
-	@JsonProperty("startTime")
-	private String startTime;
-	@JsonProperty("duration")
-	private Integer duration;
-	@JsonProperty("testFailureCause")
-	private TestFailureCause testFailureCause;
-	@JsonProperty("testFailureClassname")
-	private String testFailureClassname;
-	@JsonProperty("testFailureMessage")
-	private String testFailureMessage;
-	@JsonProperty("testFailureSummary")
-	private String testFailureSummary;
-	@JsonProperty("projectKey")
-	private String projectKey;
-	@JsonProperty("dataTable")
-	private DataTable dataTable;
-	@JsonProperty("manual")
-	private Boolean manual;
-	@JsonProperty("result")
-	private String result;
-	@JsonIgnore
-	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private String result;
 
-	@JsonProperty("name")
-	public String getName() {
-		return name;
-	}
+    private UserStory userStory;
 
-	@JsonProperty("name")
-	public void setName(String name) {
-		this.name = name;
-	}
+    private TestSteps[] testSteps;
 
-	@JsonProperty("id")
-	public String getId() {
-		return id;
-	}
+    private String projectKey;
 
-	@JsonProperty("id")
-	public void setId(String id) {
-		this.id = id;
-	}
+    private String manual;
 
-	@JsonProperty("testSteps")
-	public List<TestStep> getTestSteps() {
-		return testSteps;
-	}
+    private String id;
 
-	@JsonProperty("testSteps")
-	public void setTestSteps(List<TestStep> testSteps) {
-		this.testSteps = testSteps;
-	}
+    private String startTime;
 
-	@JsonProperty("userStory")
-	public UserStory getUserStory() {
-		return userStory;
-	}
+    private FeatureTag featureTag;
 
-	@JsonProperty("userStory")
-	public void setUserStory(UserStory userStory) {
-		this.userStory = userStory;
-	}
+    private String title;
 
-	@JsonProperty("featureTag")
-	public FeatureTag getFeatureTag() {
-		return featureTag;
-	}
+    private String duration;
 
-	@JsonProperty("featureTag")
-	public void setFeatureTag(FeatureTag featureTag) {
-		this.featureTag = featureTag;
-	}
+    private String sessionId;
 
-	@JsonProperty("title")
-	public String getTitle() {
-		return title;
-	}
+    private String name;
 
-	@JsonProperty("title")
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    private String testSource;
 
-	@JsonProperty("description")
-	public String getDescription() {
-		return description;
-	}
+    private String driver;
 
-	@JsonProperty("description")
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    private DataTable dataTable;
 
-	@JsonProperty("tags")
-	public List<Tag> getTags() {
-		return tags;
-	}
+    public List<Tags> getTags ()
+    {
+        return tags;
+    }
 
-	@JsonProperty("tags")
-	public void setTags(List<Tag> tags) {
-		this.tags = tags;
-	}
+    public void setTags (List<Tags> tags)
+    {
+        this.tags = tags;
+    }
 
-	@JsonProperty("startTime")
-	public String getStartTime() {
-		return startTime;
-	}
+    public String getResult ()
+    {
+        return result;
+    }
 
-	@JsonProperty("startTime")
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-	}
+    public void setResult (String result)
+    {
+        this.result = result;
+    }
 
-	@JsonProperty("duration")
-	public Integer getDuration() {
-		return duration;
-	}
+    public UserStory getUserStory ()
+    {
+        return userStory;
+    }
 
-	@JsonProperty("duration")
-	public void setDuration(Integer duration) {
-		this.duration = duration;
-	}
+    public void setUserStory (UserStory userStory)
+    {
+        this.userStory = userStory;
+    }
 
-	@JsonProperty("testFailureCause")
-	public TestFailureCause getTestFailureCause() {
-		return testFailureCause;
-	}
+    public TestSteps[] getTestSteps ()
+    {
+        return testSteps;
+    }
 
-	@JsonProperty("testFailureCause")
-	public void setTestFailureCause(TestFailureCause testFailureCause) {
-		this.testFailureCause = testFailureCause;
-	}
+    public void setTestSteps (TestSteps[] testSteps)
+    {
+        this.testSteps = testSteps;
+    }
 
-	@JsonProperty("testFailureClassname")
-	public String getTestFailureClassname() {
-		return testFailureClassname;
-	}
+    public String getProjectKey ()
+    {
+        return projectKey;
+    }
 
-	@JsonProperty("testFailureClassname")
-	public void setTestFailureClassname(String testFailureClassname) {
-		this.testFailureClassname = testFailureClassname;
-	}
+    public void setProjectKey (String projectKey)
+    {
+        this.projectKey = projectKey;
+    }
 
-	@JsonProperty("testFailureMessage")
-	public String getTestFailureMessage() {
-		return testFailureMessage;
-	}
+    public String getManual ()
+    {
+        return manual;
+    }
 
-	@JsonProperty("testFailureMessage")
-	public void setTestFailureMessage(String testFailureMessage) {
-		this.testFailureMessage = testFailureMessage;
-	}
+    public void setManual (String manual)
+    {
+        this.manual = manual;
+    }
 
-	@JsonProperty("testFailureSummary")
-	public String getTestFailureSummary() {
-		return testFailureSummary;
-	}
+    public String getId ()
+    {
+        return id;
+    }
 
-	@JsonProperty("testFailureSummary")
-	public void setTestFailureSummary(String testFailureSummary) {
-		this.testFailureSummary = testFailureSummary;
-	}
+    public void setId (String id)
+    {
+        this.id = id;
+    }
 
-	@JsonProperty("projectKey")
-	public String getProjectKey() {
-		return projectKey;
-	}
+    public String getStartTime ()
+    {
+        return startTime;
+    }
 
-	@JsonProperty("projectKey")
-	public void setProjectKey(String projectKey) {
-		this.projectKey = projectKey;
-	}
+    public void setStartTime (String startTime)
+    {
+        this.startTime = startTime;
+    }
 
-	@JsonProperty("dataTable")
-	public DataTable getDataTable() {
-		return dataTable;
-	}
+    public FeatureTag getFeatureTag ()
+    {
+        return featureTag;
+    }
 
-	@JsonProperty("dataTable")
-	public void setDataTable(DataTable dataTable) {
-		this.dataTable = dataTable;
-	}
+    public void setFeatureTag (FeatureTag featureTag)
+    {
+        this.featureTag = featureTag;
+    }
 
-	@JsonProperty("manual")
-	public Boolean getManual() {
-		return manual;
-	}
+    public String getTitle ()
+    {
+        return title;
+    }
 
-	@JsonProperty("manual")
-	public void setManual(Boolean manual) {
-		this.manual = manual;
-	}
+    public void setTitle (String title)
+    {
+        this.title = title;
+    }
 
-	@JsonProperty("result")
-	public String getResult() {
-		return result;
-	}
+    public String getDuration ()
+    {
+        return duration;
+    }
 
-	@JsonProperty("result")
-	public void setResult(String result) {
-		this.result = result;
-	}
+    public void setDuration (String duration)
+    {
+        this.duration = duration;
+    }
 
-	@JsonAnyGetter
-	public Map<String, Object> getAdditionalProperties() {
-		return this.additionalProperties;
-	}
+    public String getSessionId ()
+    {
+        return sessionId;
+    }
 
-	@JsonAnySetter
-	public void setAdditionalProperty(String name, Object value) {
-		this.additionalProperties.put(name, value);
-	}
+    public void setSessionId (String sessionId)
+    {
+        this.sessionId = sessionId;
+    }
 
+    public String getName ()
+    {
+        return name;
+    }
+
+    public void setName (String name)
+    {
+        this.name = name;
+    }
+
+    public String getTestSource ()
+    {
+        return testSource;
+    }
+
+    public void setTestSource (String testSource)
+    {
+        this.testSource = testSource;
+    }
+
+    public String getDriver ()
+    {
+        return driver;
+    }
+
+    public void setDriver (String driver)
+    {
+        this.driver = driver;
+    }
+
+    public DataTable getDataTable ()
+    {
+        return dataTable;
+    }
+
+    public void setDataTable (DataTable dataTable)
+    {
+        this.dataTable = dataTable;
+    }
+    
 	public Resume getFeatureStatus() throws ReportException {
 
 		Resume sumResult = null;
@@ -277,4 +220,9 @@ public class Feature {
 		return sumResult;
 	}
 
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [tags = "+tags+", result = "+result+", userStory = "+userStory+", testSteps = "+testSteps+", projectKey = "+projectKey+", manual = "+manual+", id = "+id+", startTime = "+startTime+", featureTag = "+featureTag+", title = "+title+", duration = "+duration+", sessionId = "+sessionId+", name = "+name+", testSource = "+testSource+", driver = "+driver+", dataTable = "+dataTable+"]";
+    }
 }

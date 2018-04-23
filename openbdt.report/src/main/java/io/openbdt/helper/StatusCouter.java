@@ -10,8 +10,8 @@ import org.apache.log4j.Logger;
 import io.openbdt.exception.ReportException;
 import io.openbdt.model.Feature;
 import io.openbdt.model.Resume;
-import io.openbdt.model.Row;
-import io.openbdt.model.Tag;
+import io.openbdt.model.Rows;
+import io.openbdt.model.Tags;
 
 /**
  * Classe que faz os cálculos do resultado.
@@ -132,9 +132,9 @@ public class StatusCouter {
 		LOG.info("Calculate result outline");
 
 		try {
-			List<Row> rows = feature.getDataTable().getRows();
+			List<Rows> rows = feature.getDataTable().getRows();
 
-			for (Row row : rows) {
+			for (Rows row : rows) {
 				String result = row.getResult();
 
 				if (isIgnored(feature)) {
@@ -202,9 +202,9 @@ public class StatusCouter {
 		LOG.info("Is ignored method");
 		try {
 
-			List<Tag> tags = feature.getTags();
+			List<Tags> tags = feature.getTags();
 
-			for (Tag tag : tags) {
+			for (Tags tag : tags) {
 
 				if (tag.getName().equals("ignored")) {
 					return true;

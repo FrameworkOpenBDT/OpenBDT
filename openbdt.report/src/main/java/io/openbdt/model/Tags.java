@@ -1,6 +1,6 @@
 package io.openbdt.model;
 
-public class FeatureTag
+public class Tags
 {
     private String name;
 

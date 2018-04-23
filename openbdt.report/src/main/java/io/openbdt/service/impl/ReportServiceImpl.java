@@ -27,9 +27,9 @@ import io.openbdt.filter.FileFilterJson;
 import io.openbdt.model.Feature;
 import io.openbdt.model.Principal;
 import io.openbdt.model.Resume;
-import io.openbdt.model.Screenshot;
+import io.openbdt.model.Screenshots;
 import io.openbdt.model.CustomScreenshot;
-import io.openbdt.model.TestStep;
+import io.openbdt.model.TestSteps;
 import io.openbdt.properties.PropertiesSerenityUtil;
 import io.openbdt.service.ReportService;
 import io.openbdt.util.DataBind;
@@ -169,19 +169,19 @@ public final class ReportServiceImpl implements ReportService {
 				Principal principal = gson.fromJson(br, Principal.class);
 				br.close();
 				
-				List<TestStep> testSteps = principal.getTestSteps();
+				List<TestSteps> testSteps = principal.getTestSteps();
 				
-				List<TestStep> listTestSteps = new ArrayList<TestStep>();
+				List<TestSteps> listTestSteps = new ArrayList<TestSteps>();
 				
-				for(TestStep test : testSteps) {
+				for(TestSteps test : testSteps) {
 					
-					List<Screenshot> listScreenshot = new ArrayList<Screenshot>();
+					List<Screenshots> listScreenshot = new ArrayList<Screenshots>();
 
 					for(CustomScreenshot custom : screenshotCustom.getListScreenShot()) {
 						
 						if(Integer.valueOf(custom.getId()) == test.getNumber()) {
 							
-							Screenshot screen = new Screenshot();
+							Screenshots screen = new Screenshots();
 							screen.setScreenshot(custom.getPathImage());
 							listScreenshot.add(screen);
 							

@@ -1,84 +1,67 @@
-
 package io.openbdt.model;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "headers",
-    "rows",
-    "predefinedRows",
-    "dataSetDescriptors"
-})
-public class DataTable {
+public class DataTable
+{
+    private String[] headers;
 
-    @JsonProperty("headers")
-    private List<String> headers = null;
-    @JsonProperty("rows")
-    private List<Row> rows = null;
-    @JsonProperty("predefinedRows")
-    private Boolean predefinedRows;
-    @JsonProperty("dataSetDescriptors")
-    private List<DataSetDescriptor> dataSetDescriptors = null;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private String scenarioOutline;
 
-    @JsonProperty("headers")
-    public List<String> getHeaders() {
+    private String predefinedRows;
+
+    private DataSetDescriptors[] dataSetDescriptors;
+
+    private List<Rows> rows;
+
+    public String[] getHeaders ()
+    {
         return headers;
     }
 
-    @JsonProperty("headers")
-    public void setHeaders(List<String> headers) {
+    public void setHeaders (String[] headers)
+    {
         this.headers = headers;
     }
 
-    @JsonProperty("rows")
-    public List<Row> getRows() {
-        return rows;
+    public String getScenarioOutline ()
+    {
+        return scenarioOutline;
     }
 
-    @JsonProperty("rows")
-    public void setRows(List<Row> rows) {
-        this.rows = rows;
+    public void setScenarioOutline (String scenarioOutline)
+    {
+        this.scenarioOutline = scenarioOutline;
     }
 
-    @JsonProperty("predefinedRows")
-    public Boolean getPredefinedRows() {
+    public String getPredefinedRows ()
+    {
         return predefinedRows;
     }
 
-    @JsonProperty("predefinedRows")
-    public void setPredefinedRows(Boolean predefinedRows) {
+    public void setPredefinedRows (String predefinedRows)
+    {
         this.predefinedRows = predefinedRows;
     }
 
-    @JsonProperty("dataSetDescriptors")
-    public List<DataSetDescriptor> getDataSetDescriptors() {
+    public DataSetDescriptors[] getDataSetDescriptors ()
+    {
         return dataSetDescriptors;
     }
 
-    @JsonProperty("dataSetDescriptors")
-    public void setDataSetDescriptors(List<DataSetDescriptor> dataSetDescriptors) {
+    public void setDataSetDescriptors (DataSetDescriptors[] dataSetDescriptors)
+    {
         this.dataSetDescriptors = dataSetDescriptors;
     }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
+    public List<Rows> getRows ()
+    {
+        return rows;
     }
 
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
+    public void setRows (List<Rows> rows)
+    {
+        this.rows = rows;
     }
 
 }
