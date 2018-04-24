@@ -8,11 +8,11 @@
 	<parent>
 		<groupId>io.openbdt</groupId>
 		<artifactId>openbdt</artifactId>
-		<version>2.0</version>
+		<relativePath>../pom.xml</relativePath>
+		<version>${revision}</version>
 	</parent>
 	<properties>
 		<serenity.version>1.9.8</serenity.version>
-		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
