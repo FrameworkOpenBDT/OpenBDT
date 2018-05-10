@@ -25,7 +25,7 @@ import io.openbdt.exception.PropertyNotFoundException;
 import io.openbdt.exception.ReportException;
 import io.openbdt.filter.FileFilterJson;
 import io.openbdt.model.Feature;
-import io.openbdt.model.Principal;
+import io.openbdt.model.Feature;
 import io.openbdt.model.Resume;
 import io.openbdt.model.Screenshots;
 import io.openbdt.model.CustomScreenshot;
@@ -166,7 +166,7 @@ public final class ReportServiceImpl implements ReportService {
 				br = new BufferedReader(new InputStreamReader(
 					    new FileInputStream(fileJson), "UTF-8"));
 	
-				Principal principal = gson.fromJson(br, Principal.class);
+				Feature principal = gson.fromJson(br, Feature.class);
 				br.close();
 				
 				List<TestSteps> testSteps = principal.getTestSteps();

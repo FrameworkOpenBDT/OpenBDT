@@ -7,37 +7,35 @@
 	<version>${revision}</version>
 	<packaging>pom</packaging>
 	<name>openbdt</name>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.1.RELEASE</version>
+	</parent>
 	<properties>
 		<revision>2.1</revision>
-		<serenity.version>1.9.8</serenity.version>
-		<serenity.cucumber>1.9.4</serenity.cucumber>
+		<spring.version>5.0.5.RELEASE</spring.version>
+		<jetty.version>9.4.7.v20170914</jetty.version>
+		<selenium.version>3.11.0</selenium.version>
+		<serenity.version>1.9.14</serenity.version>
+		<serenity.cucumber>1.9.5</serenity.cucumber>
+		<serenity.maven.version>1.9.14</serenity.maven.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.1.RELEASE</version>
-	</parent>
+
 	<modules>
 		<module>openbdt.core</module>
 		<module>openbdt.plugin.maven</module>
 		<module>openbdt.report</module>
+		<module>openbdt.web</module>
+		<module>openbdt.desktop</module>
+		<module>openbdt.mobile</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>org.seleniumhq.selenium</groupId>
-				<artifactId>selenium-server</artifactId>
-				<version>3.9.1</version>
-			</dependency>
-			<dependency>
-				<groupId>net.serenity-bdd</groupId>
-				<artifactId>serenity-core</artifactId>
-				<version>${serenity.version}</version>
-			</dependency>
 			<dependency>
 				<groupId>org.hamcrest</groupId>
 				<artifactId>hamcrest-all</artifactId>
@@ -52,6 +50,12 @@
 				<groupId>io.openbdt</groupId>
 				<artifactId>openbdt.core</artifactId>
 				<version>${revision}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.maven</groupId>
@@ -103,6 +107,12 @@
 				<groupId>net.serenity-bdd</groupId>
 				<artifactId>serenity-cucumber</artifactId>
 				<version>${serenity.cucumber}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>net.serenity-bdd</groupId>
@@ -112,43 +122,68 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
-				<version>4.2.2.RELEASE</version>
+				<version>${spring.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>net.serenity-bdd</groupId>
 				<artifactId>serenity-spring</artifactId>
 				<version>${serenity.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<url>http://openbdt.io/</url>
 	<build>
+		<extensions>
+			<extension>
+				<groupId>fr.jcgay.maven.extension</groupId>
+				<artifactId>unique-revision-maven-filtering</artifactId>
+				<version>1.0</version>
+			</extension>
+		</extensions>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>2.20.1</version>
+					<dependencies>
+						<dependency>
+							<groupId>io.openbdt</groupId>
+							<artifactId>openbdt.core</artifactId>
+							<version>${revision}</version>
+						</dependency>
+					</dependencies>
+					<executions>
+						<execution>
+							<goals>
+								<goal>integration-test</goal>
+								<goal>verify</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>io.openbdt</groupId>
+					<artifactId>openbdt.plugin.maven</artifactId>
+					<version>${revision}</version>
+					<executions>
+						<execution>
+							<id>openbdt-report</id>
+							<phase>post-integration-test</phase>
+							<goals>
+								<goal>format-report</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>flatten-maven-plugin</artifactId>
-				<version>1.0.0</version>
-				<configuration>
-					<updatePomFile>true</updatePomFile>
-					<flattenMode>oss</flattenMode>
-				</configuration>
-				<executions>
-					<execution>
-						<id>flatten</id>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>flatten</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>flatten.clean</id>
-						<phase>clean</phase>
-						<goals>
-							<goal>clean</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 </project>

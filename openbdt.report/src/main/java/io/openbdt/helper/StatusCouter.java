@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 
 import io.openbdt.exception.ReportException;
 import io.openbdt.model.Feature;
+import io.openbdt.model.FeatureTag;
 import io.openbdt.model.Resume;
 import io.openbdt.model.Rows;
 import io.openbdt.model.Tags;
@@ -110,7 +111,7 @@ public class StatusCouter {
 				counter.put(feature.getResult(), 1);
 			}
 
-			return new Resume(counter.get("PENDING"), counter.get("ERROR"), counter.get("SUCCESS"),
+			return new Resume(counter.get("PENDING"), counter.get("ERROR") + counter.get("FAILURE"), counter.get("SUCCESS"),
 					counter.get("IGNORED"));
 
 		} catch (Exception e) {
@@ -144,7 +145,7 @@ public class StatusCouter {
 				}
 			}
 
-			return new Resume(counter.get("PENDING"), counter.get("FAILURE"), counter.get("SUCCESS"),
+			return new Resume(counter.get("PENDING"), counter.get("ERROR") + counter.get("FAILURE"), counter.get("SUCCESS"),
 					counter.get("IGNORED"));
 
 		} catch (Exception e) {
@@ -201,17 +202,10 @@ public class StatusCouter {
 		
 		LOG.info("Is ignored method");
 		try {
-
-			List<Tags> tags = feature.getTags();
-
-			for (Tags tag : tags) {
-
+			FeatureTag tag = feature.getFeatureTag();
 				if (tag.getName().equals("ignored")) {
 					return true;
 				}
-
-			}
-
 		} catch (Exception e) {
 			LOG.fatal(e.getMessage(), e);
 			throw new ReportException(e);

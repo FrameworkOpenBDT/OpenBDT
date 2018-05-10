@@ -1,5 +1,6 @@
 package io.openbdt.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -7,20 +8,21 @@ import org.apache.log4j.Logger;
 import io.openbdt.exception.ReportException;
 import io.openbdt.helper.StatusCouter;
 
-public class Feature {
+
+public class Feature implements Serializable {
 
 	/**
-	 * LOG
+	 * 
 	 */
-	private static final Logger LOG = Logger.getLogger(Feature.class.getName());
+	private static final long serialVersionUID = -4376696552403472696L;
 	
-	private List<Tags> tags;
-
+	Logger LOG = Logger.getLogger(Feature.class);
+	
     private String result;
 
     private UserStory userStory;
 
-    private TestSteps[] testSteps;
+    private List<TestSteps> testSteps;
 
     private String projectKey;
 
@@ -31,6 +33,8 @@ public class Feature {
     private String startTime;
 
     private FeatureTag featureTag;
+    
+    private List<Tags> tags;
 
     private String title;
 
@@ -76,12 +80,12 @@ public class Feature {
         this.userStory = userStory;
     }
 
-    public TestSteps[] getTestSteps ()
+    public List<TestSteps> getTestSteps ()
     {
         return testSteps;
     }
 
-    public void setTestSteps (TestSteps[] testSteps)
+    public void setTestSteps (List<TestSteps> testSteps)
     {
         this.testSteps = testSteps;
     }
@@ -206,7 +210,7 @@ public class Feature {
         this.dataTable = dataTable;
     }
     
-	public Resume getFeatureStatus() throws ReportException {
+    public Resume getFeatureStatus() throws ReportException {
 
 		Resume sumResult = null;
 		try {
@@ -220,9 +224,10 @@ public class Feature {
 		return sumResult;
 	}
 
-    @Override
+	@Override
     public String toString()
     {
-        return "ClassPojo [tags = "+tags+", result = "+result+", userStory = "+userStory+", testSteps = "+testSteps+", projectKey = "+projectKey+", manual = "+manual+", id = "+id+", startTime = "+startTime+", featureTag = "+featureTag+", title = "+title+", duration = "+duration+", sessionId = "+sessionId+", name = "+name+", testSource = "+testSource+", driver = "+driver+", dataTable = "+dataTable+"]";
+        return "ClassPojo [result = " +result+ ", tags = [" + tags + "], userStory = "+userStory+", testSteps = "+testSteps+", projectKey = "+projectKey+", manual = "+manual+", id = "+id+", startTime = "+startTime+", featureTag = "+featureTag+", title = "+title+", duration = "+duration+", sessionId = "+sessionId+", name = "+name+", testSource = "+testSource+", driver = "+driver+", dataTable = "+dataTable+"]";
     }
+	
 }

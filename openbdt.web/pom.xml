@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>openbdt.web</artifactId>
+	<packaging>pom</packaging>
+	<name>openbdt.web</name>
+	<url>http://openbdt.io/</url>
+	<parent>
+		<groupId>io.openbdt</groupId>
+		<artifactId>openbdt</artifactId>
+		<version>${revision}</version>
+	</parent>
+	<modules>
+		<module>openbdt.adapter.selenium</module>
+		<module>openbdt.web-starter</module>
+	</modules>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.openbdt</groupId>
+				<artifactId>openbdt.adapter.selenium</artifactId>
+				<version>${revision}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.openbdt</groupId>
+				<artifactId>openbdt.web-starter</artifactId>
+				<version>${revision}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

@@ -1,5 +1,6 @@
-/target/
-/.settings/
-.classpath
-.project
-.prefs
+*target/
+*.settings/
+*.classpath
+*.project
+*.prefs
+*.flattened-pom.xml

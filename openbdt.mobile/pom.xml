@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>openbdt.mobile</artifactId>
+	<packaging>pom</packaging>
+	<parent>
+		<groupId>io.openbdt</groupId>
+		<artifactId>openbdt</artifactId>
+		<version>${revision}</version>
+	</parent>
+	<name>openbdt.mobile</name>
+	<url>http://openbdt.io/</url>
+	<modules>
+		<module>openbdt.adapter.appium</module>
+		<module>openbdt.mobile-starter</module>
+	</modules>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.testng</groupId>
+				<artifactId>testng</artifactId>
+				<version>6.7</version>
+			</dependency>
+			<dependency>
+				<groupId>io.openbdt</groupId>
+				<artifactId>openbdt.adapter.appium</artifactId>
+				<version>${revision}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.openbdt</groupId>
+				<artifactId>openbdt.mobile-starter</artifactId>
+				<version>${revision}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
+

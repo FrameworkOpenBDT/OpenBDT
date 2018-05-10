@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan
+		base-package="io.openbdt.element* io.openbdt.run.* io.openbdt.driver*" />
+
+	<bean class="io.openbdt.run.SuiteTestRunner" id="suiteTestRunner" />
+
+	<!-- <bean class="io.openbdt.driver.MobileDriverSupport" id="mobileDriverSupport" 
+		scope="singleton" /> -->
+
+
+	<bean class="io.openbdt.driver.MobileCustomDriver" id="mobileCustomDriver"
+		scope="singleton" />
+
+	<!-- <bean class="io.openbdt.element.MobileScreenElement" id="viewElement" 
+		destroy-method="" scope="prototype" depends-on="stepBusiness"> <property 
+		name="udid" value="#{stepBusiness.getAppObject().getUdid()}" /> <property 
+		name="mobileDriverSupport" ref="mobileDriverSupport" /> </bean> -->
+
+	<!-- <bean class="io.openbdt.steps.business.StepBusiness" id="stepBusiness" 
+		scope="prototype"> <constructor-arg name="appObjectClass"> <bean class="io.openbdt.pages.AppObjectClass" 
+		id="appObjectClass" depends-on="mobileDriverSupport"> <constructor-arg name="udid" 
+		value="#{mobileDriverSupport.getNextUdid()}" /> <constructor-arg name="mobileDriverSupport" 
+		ref="mobileDriverSupport" /> </bean> </constructor-arg> </bean> -->
+
+	<bean class="io.openbdt.steps.business.StepBusiness" id="stepBusiness"
+		scope="prototype">
+		<constructor-arg name="appObjectClass">
+			<bean class="io.openbdt.pages.AppObjectClass" id="appObjectClass"
+				depends-on="mobileCustomDriver">
+				<constructor-arg name="mobileCustomDriver" ref="mobileCustomDriver" />
+			</bean>
+		</constructor-arg>
+	</bean>
+
+
+	<bean class="io.openbdt.run.SuiteTestMobileRunner" id="suiteTestMobileRunner" depends-on="mobileCustomDriver">
+		<property name="mobileCustomDriver" ref="mobileCustomDriver" />
+	</bean>
+
+
+	<!-- <bean class="io.openbdt.cucumber.ExecutionManager" id="executionManager"/> -->
+
+	<!-- <bean class="io.openbdt.steps.definition.StepDefinition" id="stepDefinition" 
+		scope="prototype" lazy-init="true"/> -->
+	<!-- <bean class="io.openbdt.cucumber.ExecutionManager" id="executionManager"/> -->
+
+</beans>
