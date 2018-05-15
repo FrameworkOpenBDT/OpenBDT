@@ -16,7 +16,7 @@ public class TestSteps
 
     private String description;
 
-    private Children[] children;
+    private List<Children> children;
 
     private Integer number;
 
@@ -80,12 +80,12 @@ public class TestSteps
         this.description = description;
     }
 
-    public Children[] getChildren ()
+    public List<Children> getChildren ()
     {
         return children;
     }
 
-    public void setChildren (Children[] children)
+    public void setChildren (List<Children> children)
     {
         this.children = children;
     }

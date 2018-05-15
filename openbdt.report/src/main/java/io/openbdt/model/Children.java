@@ -1,5 +1,7 @@
 package io.openbdt.model;
 
+import java.util.List;
+
 public class Children
 {
     private String startTime;
@@ -10,7 +12,7 @@ public class Children
 
     private String duration;
 
-    private Screenshots[] screenshots;
+    private List<Screenshots> screenshots;
 
     private String description;
 
@@ -56,12 +58,12 @@ public class Children
         this.duration = duration;
     }
 
-    public Screenshots[] getScreenshots ()
+    public List<Screenshots> getScreenshots ()
     {
         return screenshots;
     }
 
-    public void setScreenshots (Screenshots[] screenshots)
+    public void setScreenshots (List<Screenshots> screenshots)
     {
         this.screenshots = screenshots;
     }
